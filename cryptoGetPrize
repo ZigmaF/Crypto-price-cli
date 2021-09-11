@@ -1,0 +1,32 @@
+#!/bin/sh
+
+cryptoID=$1
+timestamp=$(date +"%T %Z")
+
+# If script is called with no parameter
+if [ -z "$1" ]
+  then
+	echo "Crypto ID:"	
+	read cryptoID
+	echo "Fetching price for: $cryptoID"
+  else 
+	  echo "Fetching price for: $cryptoID"
+fi
+
+echo "Current time: ${timestamp}"
+
+ #Fetching with HTTP method GET
+ wget --quiet \
+	--method GET \
+	--header 'x-rapidapi-key: c1e3a16769msh854a2c32cf6d7ecp11cfafjsn423b3be3f1d2' \
+	--header 'x-rapidapi-host: coingecko.p.rapidapi.com' \
+	--output-document \
+	- "https://coingecko.p.rapidapi.com/simple/price?ids=${cryptoID}&vs_currencies=USD"
+
+# curl --request GET \
+#	--url 'https://coingecko.p.rapidapi.com/simple/price?ids=${cryptoID}&vs_currencies=USD&include_24hr_change=true' \
+#	--header 'x-rapidapi-host: coingecko.p.rapidapi.com' \
+#	--header 'x-rapidapi-key: c1e3a16769msh854a2c32cf6d7ecp11cfafjsn423b3be3f1d2' | jq '.bitcoin'
+
+# priceBought BTC=437607 nok
+
