@@ -1,0 +1,31 @@
+#!/bin/sh
+
+### Start editing script here ###
+
+# Insert your rapidapi token here
+api_token="YOUR_API_TOKEN"
+
+### Stop editing script here ###
+
+cryptoID=$1
+timestamp=$(date +"%T %Z")
+
+# If script is called with no argument
+if [ -z "$1" ]
+  then
+	echo "Crypto ID:"	
+	read cryptoID
+	echo "Fetching price for: $cryptoID"
+  else 
+	  echo "Fetching price for: $cryptoID"
+fi
+
+echo "Current time: ${timestamp}"
+
+ #Fetching with HTTP method GET
+ wget --quiet \
+	--method GET \
+	--header "x-rapidapi-key: $api_token" \
+	--header 'x-rapidapi-host: coingecko.p.rapidapi.com' \
+	--output-document \
+	- "https://coingecko.p.rapidapi.com/simple/price?ids=${cryptoID}&vs_currencies=USD"
