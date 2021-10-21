@@ -7,10 +7,11 @@ api_token="YOUR_API_TOKEN"
 
 ### Stop editing script here ###
 
+# Variables
 cryptoID=$1
 timestamp=$(date +"%T %Z")
 
-# If script is called with no argument
+# If script is called with no parameter
 if [ -z "$1" ]
   then
 	echo "Crypto ID:"	
@@ -22,10 +23,13 @@ fi
 
 echo "Current time: ${timestamp}"
 
- #Fetching with HTTP method GET
- wget --quiet \
-	--method GET \
-	--header "x-rapidapi-key: $api_token" \
-	--header 'x-rapidapi-host: coingecko.p.rapidapi.com' \
-	--output-document \
-	- "https://coingecko.p.rapidapi.com/simple/price?ids=${cryptoID}&vs_currencies=USD"
+# Fetching data from API and storing to variable
+resJSON=$(curl --silent --request GET \
+	--url "https://coingecko.p.rapidapi.com/simple/price?ids=${cryptoID}&vs_currencies=USD" \
+	--header "x-rapidapi-host: coingecko.p.rapidapi.com" \
+    --header "x-rapidapi-key: $api_token")
+
+priceUSD=$(echo $resJSON | jq -r ".${cryptoID}.usd")
+
+# Write price to stdout 
+echo "Current price: ${priceUSD}"
