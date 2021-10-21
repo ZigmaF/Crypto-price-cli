@@ -15,6 +15,8 @@ Easy command line interface to fetch prices of cryptocurrencies.
 ## 🏃🏽‍♂️ Run script
 - Give the program execution permissions
 ```chmod +x /path/to/script/./cryptoGetPrice.sh```
+- Run the script with the following command:
+```/path/to/script/./cryptoGetPrice.sh```
 
 ## 🤖 Make script run for every new shell
 - Paste the following into ~/.bashrc:
