@@ -6,8 +6,7 @@ Easy command line interface to fetch prices of cryptocurrencies.
 ```git clone https://github.com/ZigmaF/Crypto-price-cli.git```
 
 ## 📌 Dependencies
-- [RapiAPI key](https://docs.rapidapi.com/docs/consumer-quick-start-guide)
-- Sign up to RapidApi and generate you own private key. Make sure to not share your key with anyone. Make it accessable to the script by storing it in a variable.
+- Sign up to [RapiAPI](https://docs.rapidapi.com/docs/consumer-quick-start-guide) and generate you own private key. Make sure to not share your key with anyone. Make it accessable to the script by storing it in a variable. It is free.
 - [JQ](https://github.com/stedolan/jq) command-line JSON processor
 - Install with brew: 
 ```brew install jq```
