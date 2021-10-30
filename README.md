@@ -21,3 +21,9 @@ Easy CLI script to fetch prices of cryptocurrencies.
 - Paste the following into ~/.bashrc:
 ```~/path/to/script/./cryptoGetPrice.sh```
 - Note if you are using another shell, for instance oh my zsh, the file would be ~/.zshrc
+
+## 👩🏽‍💻 Examples
+- Will ask you to type a name of cryptocurrency and returns the price of it
+```~/path/to/script/./cryptoGetPrice.sh```
+- Will fetch the price of Ethereum without any promt
+```~/path/to/script/./cryptoGetPrice.sh ethereum```
