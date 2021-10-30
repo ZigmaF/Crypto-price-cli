@@ -1,5 +1,5 @@
 # 💰 Crypto-price-cli
-Easy command line interface to fetch prices of cryptocurrencies.
+Easy CLI script to fetch prices of cryptocurrencies.
 
 ## 👨🏼‍💻 Download
 - To download the program, clone the project with HTTPS
