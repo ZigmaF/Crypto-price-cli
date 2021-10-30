@@ -1,11 +1,19 @@
 #!/bin/sh
 
+# NOTE: IF you are using bash or another shell than zsh, change the shebang to the appropriate path. For bash: #!/bin/bash.
+
 ### Start editing script here ###
 
 # Insert your rapidapi token here
 api_token="YOUR_API_TOKEN"
 
 ### Stop editing script here ###
+
+# Exit script if API token is not valid
+if [[ $api_token -eq "YOUR_API_TOKEN" ]] ; then
+    echo "You need a valid RapidAPI key. See dependencies in README"
+    exit 1
+fi
 
 # Variables
 cryptoID=$1
